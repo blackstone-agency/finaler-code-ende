@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Blackstone Agency — Digital Dominance</title>
+<meta name="description" content="Blackstone Agency — Premium Digital Agency für Web Design, Performance Marketing & Brand Architecture. Wir bauen digitale Marktführer." />
+<meta name="theme-color" content="#030303"/>
+<meta property="og:title" content="Blackstone Agency — Digital Dominance"/>
+<meta property="og:description" content="Premium Digital Agency für Web Design, Performance Marketing & Brand Architecture."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://blackstone-agency.de"/>
+<meta property="og:locale" content="de_DE"/>
+<link rel="canonical" href="https://blackstone-agency.de/"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Blackstone Agency"/>
+<meta name="twitter:description" content="We build digital dominance."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 120 120' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='10' y='10' width='100' height='100' rx='24' fill='%2309090B'/%3E%3Cpath d='M60 25L90 42L60 59L30 42L60 25Z' fill='%233F3F46'/%3E%3Cpath d='M30 42L60 59V93L30 76V42Z' fill='%2327272A'/%3E%3Cpath d='M60 59L90 42V76L60 93V59Z' fill='%2371717A'/%3E%3Cpath d='M60 25V59L60 93' stroke='white' stroke-width='1.2' opacity='0.65'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="/assets/tailwind.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
+<style>
+/* ── Reset ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ── Dark base ── */
+.page-dark{background:#030303;color:#ffffff}
+.page-light{background:#f8f8f8;color:#09090b}
+
+/* ── Gradient text ── */
+.g-text{background:linear-gradient(135deg,#fff 0%,#a1a1aa 55%,#71717a 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.g-text-light{background:linear-gradient(135deg,#09090b 0%,#3f3f46 55%,#71717a 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ── Glass ── */
+.glass-dark{background:rgba(255,255,255,0.03);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.08)}
+.glass-light{background:rgba(255,255,255,0.75);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(0,0,0,0.08)}
+
+/* ── Cards ── */
+.card-dark{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.07);transition:all .4s cubic-bezier(.4,0,.2,1)}
+.card-dark:hover{background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.16);transform:translateY(-5px);box-shadow:0 32px 64px rgba(0,0,0,.6)}
+.card-light{background:rgba(255,255,255,0.8);border:1px solid rgba(0,0,0,0.07);transition:all .4s cubic-bezier(.4,0,.2,1)}
+.card-light:hover{background:#fff;border-color:rgba(0,0,0,0.15);transform:translateY(-5px);box-shadow:0 20px 40px rgba(0,0,0,.1)}
+
+/* ── Buttons ── */
+.btn-p{background:linear-gradient(135deg,#fff,#d4d4d8);color:#09090b;font-weight:700;transition:all .3s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden}
+.btn-p::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.25),transparent);opacity:0;transition:opacity .3s}
+.btn-p:hover::after{opacity:1}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 20px 40px rgba(255,255,255,.12)}
+.btn-s-dark{border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.8);transition:all .3s;background:transparent}
+.btn-s-dark:hover{border-color:rgba(255,255,255,.35);color:#fff;background:rgba(255,255,255,.06)}
+.btn-s-light{border:1px solid rgba(0,0,0,.15);color:rgba(0,0,0,.7);transition:all .3s;background:transparent}
+.btn-s-light:hover{border-color:rgba(0,0,0,.3);color:#09090b;background:rgba(0,0,0,.04)}
+
+/* ── Nav ── */
+.nav-scrolled-dark{background:rgba(3,3,3,.88)!important;backdrop-filter:blur(28px)!important;border-bottom:1px solid rgba(255,255,255,.07)!important}
+.nav-scrolled-light{background:rgba(248,248,248,.88)!important;backdrop-filter:blur(28px)!important;border-bottom:1px solid rgba(0,0,0,.07)!important}
+
+/* ── Forms ── */
+.inp-dark{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:#fff;transition:all .2s}
+.inp-dark::placeholder{color:rgba(255,255,255,.25)}
+.inp-dark:focus{outline:none;border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.07)}
+.inp-light{background:rgba(0,0,0,.03);border:1px solid rgba(0,0,0,.12);color:#09090b;transition:all .2s}
+.inp-light::placeholder{color:rgba(0,0,0,.3)}
+.inp-light:focus{outline:none;border-color:rgba(0,0,0,.3);background:rgba(0,0,0,.05)}
+select option{background:#1a1a1a;color:#fff}
+
+/* ── Scroll reveal ── */
+.reveal{opacity:0;transform:translateY(44px);transition:opacity .85s cubic-bezier(.4,0,.2,1),transform .85s cubic-bezier(.4,0,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-l{opacity:0;transform:translateX(-44px);transition:opacity .85s cubic-bezier(.4,0,.2,1),transform .85s cubic-bezier(.4,0,.2,1)}
+.reveal-l.visible{opacity:1;transform:translateX(0)}
+.reveal-r{opacity:0;transform:translateX(44px);transition:opacity .85s cubic-bezier(.4,0,.2,1),transform .85s cubic-bezier(.4,0,.2,1)}
+.reveal-r.visible{opacity:1;transform:translateX(0)}
+.d1{transition-delay:.1s!important}.d2{transition-delay:.2s!important}.d3{transition-delay:.3s!important}
+.d4{transition-delay:.4s!important}.d5{transition-delay:.5s!important}.d6{transition-delay:.6s!important}
+
+/* ── Keyframes ── */
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes pulse-ring{0%{transform:scale(.95);opacity:.6}70%{transform:scale(1.1);opacity:0}100%{transform:scale(1.1);opacity:0}}
+@keyframes slide-up{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slide-down{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fade-in{from{opacity:0}to{opacity:1}}
+@keyframes scale-in{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+@keyframes blob{0%,100%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%}25%{border-radius:30% 70% 50% 50%/30% 70% 50% 50%}50%{border-radius:50% 50% 70% 30%/50% 30% 70% 50%}75%{border-radius:70% 30% 50% 50%/70% 50% 30% 50%}}
+@keyframes borderSpin{from{--bangle:0deg}to{--bangle:360deg}}
+@keyframes shimmer{from{background-position:-200% 0}to{background-position:200% 0}}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes count-glow{0%,100%{text-shadow:none}50%{text-shadow:0 0 20px rgba(255,255,255,.3)}}
+@property --bangle{syntax:'<angle>';initial-value:0deg;inherits:false}
+
+/* ── Utility animations ── */
+.anim-float{animation:float 6s ease-in-out infinite}
+.anim-slide-up{animation:slide-up .7s ease-out forwards}
+.anim-scale-in{animation:scale-in .35s ease-out}
+.anim-fade{animation:fade-in .5s ease-out}
+
+/* ── Blob ── */
+.hero-blob{position:absolute;width:700px;height:700px;border-radius:60% 40% 30% 70%/60% 30% 70% 40%;animation:blob 10s ease-in-out infinite;pointer-events:none;filter:blur(80px)}
+
+/* ── Gradient animated border (popular card) ── */
+.pop-card{position:relative;background:rgba(255,255,255,.06)!important}
+.pop-card::before{content:'';position:absolute;inset:-1px;border-radius:inherit;background:conic-gradient(from var(--bangle),transparent 60%,rgba(255,255,255,.7) 80%,transparent 100%);animation:borderSpin 4s linear infinite;z-index:-1}
+
+/* ── Shimmer skeleton ── */
+.shimmer-line{background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);background-size:200% 100%;animation:shimmer 2s linear infinite}
+
+/* ── Scroll progress ── */
+#scroll-bar{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,#fff,#a1a1aa);z-index:9999;transition:width .12s linear;pointer-events:none}
+
+/* ── Cursor glow ── */
+#cursor-glow{position:fixed;width:500px;height:500px;border-radius:50%;pointer-events:none;z-index:2;transition:left .08s,top .08s;transform:translate(-50%,-50%)}
+
+/* ── Modal ── */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px}
+.modal-box{max-height:90vh;overflow-y:auto;animation:scale-in .3s ease-out;scrollbar-width:thin}
+
+/* ── Ticker ── */
+.ticker-wrap{overflow:hidden;white-space:nowrap}
+.ticker-inner{display:inline-flex;animation:ticker 30s linear infinite}
+
+/* ── Badge ── */
+.badge-dark{display:inline-flex;align-items:center;padding:6px 16px;border-radius:9999px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.badge-light{display:inline-flex;align-items:center;padding:6px 16px;border-radius:9999px;border:1px solid rgba(0,0,0,.1);background:rgba(0,0,0,.04);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(0,0,0,.45)}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:#030303}
+::-webkit-scrollbar-thumb{background:#27272a;border-radius:9999px}
+.page-light ::-webkit-scrollbar-track{background:#f8f8f8}
+.page-light ::-webkit-scrollbar-thumb{background:#d4d4d8}
+
+/* ── Browser mockup ── */
+.browser-chrome{border-radius:12px 12px 0 0;padding:10px 16px;display:flex;align-items:center;gap:8px}
+.dot-r{width:10px;height:10px;border-radius:50%;background:#ff5f57}
+.dot-y{width:10px;height:10px;border-radius:50%;background:#ffbd2e}
+.dot-g{width:10px;height:10px;border-radius:50%;background:#28c840}
+
+/* ── Cookie banner ── */
+.cookie-bar{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);width:min(620px,calc(100vw - 32px));z-index:9000;animation:slide-up .5s ease-out}
+
+/* ── Back to top ── */
+#back-top{position:fixed;bottom:28px;right:28px;z-index:8000;transition:all .3s;opacity:0;pointer-events:none}
+#back-top.visible{opacity:1;pointer-events:auto}
+
+/* ── Hover underline ── */
+.h-line{position:relative}
+.h-line::after{content:'';position:absolute;bottom:-1px;left:0;width:0;height:1px;background:currentColor;transition:width .3s}
+.h-line:hover::after{width:100%}
+
+/* ── Step connector ── */
+.step-line::after{content:'';position:absolute;top:50%;right:-24px;width:24px;height:1px;background:rgba(255,255,255,.1)}
+
+/* ── Grid bg ── */
+.grid-bg{background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(to right,rgba(255,255,255,.025) 1px,transparent 1px);background-size:72px 72px}
+
+/* ── Timeline ── */
+.tl-line{position:relative}
+.tl-line::before{content:'';position:absolute;left:20px;top:40px;bottom:0;width:1px;background:linear-gradient(to bottom,rgba(255,255,255,.12),transparent)}
+
+/* ── Pricing feature check ── */
+.check-icon{flex-shrink:0;width:16px;height:16px;margin-top:2px}
+
+/* ── Page transition ── */
+.page-enter{animation:slide-up .4s ease-out}
+
+/* ══ PREMIUM FX ══════════════════════════════════════════════ */
+
+/* Character-by-character headline reveal */
+@keyframes charIn{0%{opacity:0;transform:translateY(.9em) rotateX(-80deg)}100%{opacity:1;transform:translateY(0) rotateX(0)}}
+.ch{display:inline-block;opacity:0;transform-origin:50% 100%;animation:charIn .6s cubic-bezier(.2,1,.3,1) both}
+
+/* Scan-line removed */
+
+/* Spine — vertical section navigator */
+.spine{position:fixed;left:18px;top:50%;transform:translateY(-50%);z-index:50;pointer-events:none;
+  display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;transition:opacity .5s}
+.spine.show{opacity:1}
+.sp-dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.18);transition:all .4s}
+.sp-dot.act{width:6px;height:6px;background:#fff;box-shadow:0 0 10px rgba(255,255,255,.7)}
+.sp-line{width:1px;height:24px;background:rgba(255,255,255,.1)}
+
+/* Hero parallax layers */
+.h-layer{will-change:transform;transition:transform .06s linear}
+
+/* Apple-sticky process */
+.proc-panel{position:absolute;top:50%;left:0;right:0;transform:translateY(-50%) translateX(70px);opacity:0;transition:all .65s cubic-bezier(.4,0,.2,1);pointer-events:none}
+.proc-panel.act{transform:translateY(-50%) translateX(0);opacity:1;pointer-events:auto}
+
+/* Process logo SVG face transitions */
+.plogo path,.plogo rect,.plogo circle{transition:all .75s cubic-bezier(.4,0,.2,1)}
+
+/* Giant bg numbers */
+.bg-num{position:absolute;font-weight:900;line-height:1;letter-spacing:-.06em;pointer-events:none;
+  user-select:none;color:white;font-size:clamp(120px,22vw,300px);opacity:.03;top:-40px;right:-20px;overflow:hidden}
+
+/* Scroll bounce arrow */
+@keyframes bounce{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(9px);opacity:.9}}
+.bounce{animation:bounce 2.2s ease-in-out infinite}
+
+/* Magnetic button effect */
+.mag{transition:transform .35s cubic-bezier(.175,.885,.32,1.275),box-shadow .35s}
+
+/* Step progress dots */
+.step-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.15);transition:all .4s}
+.step-dot.on{background:#fff;width:24px;border-radius:3px;box-shadow:0 0 8px rgba(255,255,255,.5)}
+
+/* ── Film-grain / noise overlay ── */
+@keyframes grain-shift{
+  0%{transform:translate(0,0)}11%{transform:translate(-2%,-3%)}
+  22%{transform:translate(3%,1%)}33%{transform:translate(-1%,3%)}
+  44%{transform:translate(3%,-2%)}55%{transform:translate(-3%,2%)}
+  66%{transform:translate(1%,-3%)}77%{transform:translate(2%,3%)}
+  88%{transform:translate(-3%,1%)}100%{transform:translate(0,0)}
+}
+.grain-overlay{position:fixed;inset:-120px;pointer-events:none;z-index:9997;opacity:.022;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain-shift .45s steps(1) infinite;will-change:transform}
+
+/* ── Mouse-tracking card glow ── */
+.glow-card{position:relative}
+.gc-glow{position:absolute;inset:0;pointer-events:none;border-radius:inherit;
+  background:radial-gradient(380px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.052),transparent 62%);
+  opacity:0;transition:opacity .5s;z-index:1}
+.glow-card:hover .gc-glow{opacity:1}
+.glow-card>*:not(.gc-glow){position:relative;z-index:2}
+
+/* ── Chip section ── */
+@keyframes pin-alive{0%,100%{opacity:.18}50%{opacity:1}}
+@keyframes core-heat{0%,100%{opacity:.07}50%{opacity:.65}}
+.chip-sticky{position:sticky;top:0;height:100vh;overflow:hidden;
+  display:flex;align-items:center;justify-content:center}
+.chip-transform{will-change:transform;transform-origin:center center}
+@media(prefers-reduced-motion:reduce){.chip-transform{transition:none!important;transform:none!important}}
+
+/* ── Horizontal glow divider ── */
+.hr-glow{height:1px;border:none;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.08) 20%,rgba(255,255,255,.25) 50%,rgba(255,255,255,.08) 80%,transparent);
+  margin:0;position:relative}
+.hr-glow::after{content:'';position:absolute;left:50%;top:-5px;transform:translateX(-50%);
+  width:140px;height:10px;background:rgba(255,255,255,.14);filter:blur(7px);border-radius:50%}
+
+/* ── Floating label badge ── */
+@keyframes float-label{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.float-label{animation:float-label 3s ease-in-out infinite}
+
+/* ── Magnetic button transition ── */
+.mag{transition:transform .4s cubic-bezier(.175,.885,.32,1.275),box-shadow .3s}
+.mag:hover{box-shadow:0 18px 40px rgba(255,255,255,.08)}
+
+/* ── Enhanced hero stats ── */
+.stat-block{position:relative}
+.stat-block::after{content:'';position:absolute;bottom:-6px;left:0;width:28px;height:2px;
+  background:linear-gradient(90deg,rgba(255,255,255,.35),transparent);border-radius:1px}
+
+/* ── Service card icon glow on hover ── */
+.svc-card:hover .svc-icon{box-shadow:0 0 28px rgba(255,255,255,.07)}
+.svc-icon{transition:box-shadow .4s}
+
+/* ── Mobile nav drawer ── */
+@keyframes drawer-in{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.mobile-drawer{animation:drawer-in .25s ease-out forwards}
+
+/* ── Scroll-line chip text ── */
+.chip-label-wrap{position:absolute;bottom:10%;left:0;right:0;text-align:center;pointer-events:none}
+
+/* ── Better focus rings ── */
+button:focus-visible,a:focus-visible{outline:2px solid rgba(255,255,255,.4);outline-offset:3px;border-radius:6px}
+
+/* ── Ticker pause on hover ── */
+.ticker-wrap:hover .ticker-inner{animation-play-state:paused}
+
+/* ── Number glow counter ── */
+@keyframes num-appear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── Mobile chip scale constraint ── */
+@media(max-width:640px){.chip-transform{transform-origin:center center}}
+
+/* ── Page light grain tint ── */
+.page-light .grain-overlay{opacity:.012}
+
+/* ── Mobile touch targets (44×44px min per ui-ux-pro-max guidelines) ── */
+@media(max-width:768px){
+  .btn-p,.btn-s-dark,.btn-s-light{min-height:44px;min-width:44px}
+  nav button{min-height:44px;min-width:44px}
+  #back-top button{width:52px!important;height:52px!important}
+}
+
+/* ── Portfolio card hover image-scale ── */
+.port-preview{overflow:hidden}
+.port-preview-inner{transition:transform .55s cubic-bezier(.4,0,.2,1)}
+.port-preview:hover .port-preview-inner{transform:scale(1.04)}
+
+/* ── Pricing popular badge pulse ── */
+@keyframes badge-pop{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.25)}50%{box-shadow:0 0 0 6px rgba(255,255,255,0)}}
+.popular-badge{animation:badge-pop 2.5s ease-in-out infinite}
+
+/* ── Contact form focus state (accessible) ── */
+.inp-dark:focus,.inp-light:focus{box-shadow:0 0 0 3px rgba(255,255,255,.08)}
+
+/* ── Footer gradient top border ── */
+.footer-border{border-top:1px solid transparent;background:linear-gradient(#030303,#030303) padding-box,linear-gradient(90deg,transparent,rgba(255,255,255,.1) 30%,rgba(255,255,255,.2) 50%,rgba(255,255,255,.1) 70%,transparent) border-box}
+
+/* ── Ticker fast on mobile ── */
+@media(max-width:640px){.ticker-inner{animation-duration:18s}}
+
+/* ── Spine hidden on mobile ── */
+@media(max-width:1024px){.spine{display:none!important}}
+
+/* ── Smoother card hover on touch devices ── */
+@media(hover:none){.card-dark:hover,.card-light:hover{transform:none;box-shadow:none}}
+
+/* ══ HERO 2.0 — DOT GRID + GRADIENT BADGE + WORD ROTATE ══ */
+
+/* Dot grid base (always visible, subtle) */
+.hero-dots{position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(circle,rgba(255,255,255,.07) 1px,transparent 1px);
+  background-size:28px 28px}
+.page-light .hero-dots{background-image:radial-gradient(circle,rgba(0,0,0,.08) 1px,transparent 1px)}
+
+/* Mouse-reveal glow layer (colored dots appear where cursor is) */
+.hero-dots-glow{position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(circle,rgba(139,92,246,.75) 1px,transparent 1px);
+  background-size:28px 28px;
+  opacity:0;transition:opacity .4s;
+  -webkit-mask-image:radial-gradient(320px circle at var(--hdx,50%) var(--hdy,50%),black,transparent);
+  mask-image:radial-gradient(320px circle at var(--hdx,50%) var(--hdy,50%),black,transparent)}
+.hero-section:hover .hero-dots-glow{opacity:1}
+.page-light .hero-dots-glow{background-image:radial-gradient(circle,rgba(99,102,241,.6) 1px,transparent 1px)}
+
+/* Animated gradient border badge (21st.dev AnimatedGradientText style) */
+@keyframes badge-flow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.gradient-badge{
+  position:relative;display:inline-flex;align-items:center;gap:8px;
+  padding:7px 18px;border-radius:9999px;
+  font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.75);z-index:0}
+.gradient-badge::before{content:'';position:absolute;inset:-1.5px;border-radius:inherit;
+  background:linear-gradient(90deg,#7c3aed,#3b82f6,#10b981,#f59e0b,#7c3aed);
+  background-size:300% 100%;animation:badge-flow 5s linear infinite;z-index:-1}
+.gradient-badge::after{content:'';position:absolute;inset:1.5px;border-radius:inherit;
+  background:#09090e;z-index:-1}
+.page-light .gradient-badge{color:rgba(0,0,0,.7)}
+.page-light .gradient-badge::after{background:#f0f0f5}
+
+/* Rotating gradient word */
+.gradient-word{
+  background:linear-gradient(135deg,#a78bfa 0%,#60a5fa 45%,#34d399 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:inline-block}
+.page-light .gradient-word{background:linear-gradient(135deg,#7c3aed 0%,#2563eb 45%,#059669 100%);
+  -webkit-background-clip:text;background-clip:text}
+
+/* Hero split layout */
+.hero-section{position:relative;min-height:100vh;display:flex;flex-direction:column;
+  justify-content:center;overflow:hidden;padding-top:80px;z-index:3}
+
+/* Floating mockup glow */
+.mockup-glow{box-shadow:0 0 0 1px rgba(255,255,255,.08),0 70px 140px rgba(0,0,0,.85),0 0 120px rgba(124,58,237,.08)}
+.page-light .mockup-glow{box-shadow:0 0 0 1px rgba(0,0,0,.07),0 40px 80px rgba(0,0,0,.1)}
+
+/* Stats divider line */
+.stats-row{border-top:1px solid rgba(255,255,255,.07)}
+.page-light .stats-row{border-top:1px solid rgba(0,0,0,.08)}
+
+/* ══ BENTO SERVICES GRID ══ */
+.bento-featured{position:relative;overflow:hidden}
+.bento-featured::before{content:'';position:absolute;top:-60px;right:-60px;
+  width:280px;height:280px;border-radius:50%;
+  background:rgba(124,58,237,.12);filter:blur(80px);pointer-events:none}
+
+/* Service accent glows */
+.svc-accent-0::before{background:rgba(124,58,237,.12)}
+.svc-accent-1::before{background:rgba(59,130,246,.1)}
+.svc-accent-2::before{background:rgba(16,185,129,.1)}
+.svc-accent-3::before{background:rgba(245,158,11,.1)}
+.svc-accent-4::before{background:rgba(239,68,68,.1)}
+.svc-accent-5::before{background:rgba(168,85,247,.1)}
+
+/* ══ PORTFOLIO CARDS IMPROVED ══ */
+.port-card{transition:all .5s cubic-bezier(.4,0,.2,1)}
+.port-card:hover{transform:translateY(-6px);box-shadow:0 40px 80px rgba(0,0,0,.7)}
+
+/* ══ NEW CTA SECTION ══ */
+@keyframes cta-glow-pulse{0%,100%{opacity:.6}50%{opacity:1}}
+.cta-orb{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none;
+  animation:cta-glow-pulse 4s ease-in-out infinite}
+
+/* ══ FOOTER IMPROVED ══ */
+.footer-grad-top{background:linear-gradient(to right,transparent,rgba(255,255,255,.07) 30%,rgba(255,255,255,.14) 50%,rgba(255,255,255,.07) 70%,transparent);
+  height:1px;margin-bottom:0}
+.page-light .footer-grad-top{background:linear-gradient(to right,transparent,rgba(0,0,0,.07) 30%,rgba(0,0,0,.12) 50%,rgba(0,0,0,.07) 70%,transparent)}
+
+/* ══ NEW HERO 3.0 ══ */
+.hero-card-glow{box-shadow:0 0 0 1px rgba(255,255,255,.08),0 50px 120px rgba(0,0,0,.9),0 0 80px rgba(124,58,237,.1)}
+.page-light .hero-card-glow{box-shadow:0 0 0 1px rgba(0,0,0,.07),0 30px 60px rgba(0,0,0,.12)}
+@media(min-width:1024px){.hero-two-col{display:grid!important;grid-template-columns:55% 45%;gap:4rem;align-items:center}}
+.tilt-card{transition:transform .18s ease-out;transform-style:preserve-3d;transform:perspective(900px) rotateY(-6deg) rotateX(4deg)}
+
+/* ══ SERVICES BENTO v2 ══ */
+.svc-tag{display:inline-flex;align-items:center;padding:4px 12px;border-radius:9999px;font-size:11px;font-weight:600;letter-spacing:.05em}
+.featured-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}
+@media(min-width:768px){.featured-grid{grid-template-columns:1fr auto}}
+
+/* ══ PORTFOLIO editorial ══ */
+.port-number{font-size:clamp(80px,14vw,160px);font-weight:900;letter-spacing:-.06em;line-height:1;opacity:.04;position:absolute;top:-20px;right:-10px;pointer-events:none;user-select:none}
+
+/* ══ CONTACT split ══ */
+@media(min-width:1024px){.contact-split{display:grid!important;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}}
+
+/* ══ FOOTER editorial ══ */
+.footer-big{font-size:clamp(38px,6.5vw,88px);font-weight:900;letter-spacing:-.04em;line-height:.88}
+@media(min-width:1024px){.footer-links-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem}}
+
+/* ══ PRICING v2 ══ */
+.price-num{font-size:clamp(44px,5vw,64px);font-weight:900;letter-spacing:-.04em;line-height:1}
+.plan-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 14px;border-radius:9999px}
+
+/* ══ PROCESS v2 ══ */
+.proc-number{font-size:clamp(100px,18vw,220px);font-weight:900;letter-spacing:-.06em;line-height:1;opacity:.035;position:absolute;top:-30px;right:-15px;pointer-events:none;user-select:none}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<div id="scroll-bar"></div>
+<div id="cursor-glow"></div>
+<div id="back-top"></div>
+<div class="grain-overlay" aria-hidden="true"></div>
+
+<!-- React (self-hosted, pinned 18.3.1) + compiled App -->
+<script src="/vendor/react.production.min.js" defer></script>
+<script src="/vendor/react-dom.production.min.js" defer></script>
+
+<!-- Data & Translations (plain JS, no JSX) -->
+<script>
+// ── Portfolio ──
+window.PORTFOLIO = [
+  {
+    id:1, name:'Pflegedienst Impuls', url:'http://pflegedienst-impuls.com',
+    category:'Healthcare', color:'#0ea5e9',
+    tags:['Web Design','Local SEO','Google Ads'],
+    desc_de:'Kompletter Neuaufbau des digitalen Auftritts für einen ambulanten Pflegedienst. Von der modernen Website über Google My Business bis zu gezielten Local-SEO-Maßnahmen — heute ist Pflegedienst Impuls die erste Adresse in der Region.',
+    desc_en:'Complete digital rebuild for an outpatient care service — from website to Google Business Profile to targeted local SEO. Now the #1 care service in the region.',
+    metrics:[{v:'Garantiert',l:'Mehr Patienten'},{v:'#1',l:'Im Ranking'}],
+    preview_bg:'linear-gradient(135deg,#0c2a3e,#0a1a2b)',
+  },
+  {
+    id:2, name:'Bella Napoli', url:'https://www.napoli-bella.de',
+    category:'Gastronomie', color:'#f59e0b',
+    tags:['Web Design','Social Media','Bestellungen'],
+    desc_de:'Ein authentisches Stück Neapel im Netz. Wir haben die digitale Identität von Napoli Bella neu erfunden — atmosphärische Website, aktive Social-Media-Präsenz und eine Google-Strategie, die das Restaurant täglich ausbucht.',
+    desc_en:'A piece of authentic Naples on the web. We reimagined Napoli Bella\'s digital identity — atmospheric website, active social media, and a Google strategy that fills every table every day.',
+    metrics:[{v:'+80%',l:'Online-Bestellungen'},{v:'+100%',l:'Instagram-Präsenz'}],
+    preview_bg:'linear-gradient(135deg,#2a1a05,#1a1005)',
+  },
+  {
+    id:3, name:'DeinGlanz Reinigung', url:'https://deinglanz-reinigung.de',
+    category:'Gebäudereinigung', color:'#10b981',
+    tags:['Branding','Web Design','Performance Marketing'],
+    desc_de:'Aus einem lokalen Reinigungsservice wurde eine starke Marke. Mit vollständigem Brand-Relaunch, konvertierender Website und gezielten Google-Ads-Kampagnen hat DeinGlanz seinen Marktanteil in Q1 verdreifacht.',
+    desc_en:'A local cleaning service transformed into a powerful brand. Full rebrand, conversion-optimised website and targeted Google Ads campaigns tripled market share in Q1.',
+    metrics:[{v:'Glasklare',l:'Neukunden'},{v:'Maximale',l:'Google-Präsenz'}],
+    preview_bg:'linear-gradient(135deg,#052a1a,#041a10)',
+  },
+  {
+    id:4, name:'Crashover', url:'https://www.crashover.de',
+    category:'Dienstleistungen', color:'#8b5cf6',
+    tags:['Brand Redesign','Web Design','Content Strategy'],
+    desc_de:'Auch ein Gutachter braucht eine Marke, der man folgen will. Für Crashover haben wir eine Community-Identität erschaffen, die in der Gutachter-Szene Wellen schlägt — von der Website bis zum Content-Ökosystem.',
+    desc_en:'Experts also need a brand worth following. For Crashover, we built a community identity that makes waves in the car-expert scene — from website to content ecosystem.',
+    metrics:[{v:'+50%',l:'Aufträge'},{v:'Eine echte',l:'Internet-Präsenz'}],
+    preview_bg:'linear-gradient(135deg,#1a0a2e,#0f0520)',
+  },
+];
+
+// ── Services Detail ──
+window.SERVICES_DETAIL = [
+  {
+    icon:'monitor', title_de:'Web Design & Development', title_en:'Web Design & Development',
+    desc_de:'Wir entwickeln digitale Erlebnisse, die nicht nur gut aussehen — sondern konvertieren, skalieren und performen. Jedes Projekt beginnt mit tiefem User-Research und endet mit einem Produkt, das Ihre Konkurrenz alt aussehen lässt.',
+    desc_en:'We build digital experiences that don\'t just look good — they convert, scale, and perform. Every project starts with deep user research and ends with a product that makes your competition look outdated.',
+    includes_de:['UX Research & Wireframing','Custom Design (Figma)','Frontend Development (React / Next.js / WordPress)','CMS-Integration & Admin-Backend','Core Web Vitals Optimierung (100/100 Score)','Analytics & Conversion-Tracking Setup','On-Page SEO-Grundoptimierung','SSL, Sicherheit & Hosting-Beratung','3 Monate kostenloser Support nach Launch'],
+    timeline_de:'4 – 8 Wochen', price_de:'ab €3.500',
+  },
+  {
+    icon:'trending-up', title_de:'Performance Marketing', title_en:'Performance Marketing',
+    desc_de:'Paid Ads mit chirurgischer Präzision. Wir analysieren, testen und skalieren — so lange, bis jeder investierte Euro mehrfach zurückkommt. ROAS, der Ihre Konkurrenz vergessen lässt.',
+    desc_en:'Paid ads with surgical precision. We analyse, test and scale — until every invested euro comes back multiple times over.',
+    includes_de:['Meta Ads (Facebook & Instagram) inkl. Creative-Produktion','Google Ads (Search, Display, Shopping)','TikTok Ads Setup & Management','Retargeting-Kampagnen & Custom Audiences','A/B-Testing von Creatives & Landing Pages','Vollständiges Conversion-Tracking (GA4 + Pixel)','ROAS-Reporting & Optimierung (wöchentlich)','Dedizierter Ads-Spezialist als Ansprechpartner'],
+    timeline_de:'Setup in 1 Woche, erste Ergebnisse ab Monat 2', price_de:'ab €1.500 /Monat + Werbebudget',
+  },
+  {
+    icon:'share-2', title_de:'Social Media Mastery', title_en:'Social Media Mastery',
+    desc_de:'Organisches Wachstum trifft virales Potenzial. Wir managen Ihre Social-Media-Präsenz mit strategischer Tiefe und kreativem Feuer — Ihre Marke wird unübersehbar.',
+    desc_en:'Organic growth meets viral potential. We manage your social media with strategic depth and creative fire — your brand becomes unmissable.',
+    includes_de:['Content-Kalender & Redaktionsplanung','Professionelle Grafiken & Video-Reels','Community Management & DM-Handling','Instagram, TikTok, LinkedIn & Facebook','Story-Formate & Highlight-Management','Hashtag-Strategie & Reichweitenoptimierung','Influencer-Kooperationen (Recherche & Outreach)','Monatliches Performance-Reporting'],
+    timeline_de:'Onboarding in 5 Tagen', price_de:'ab €1.200 /Monat',
+  },
+  {
+    icon:'film', title_de:'Video Production', title_en:'Video Production',
+    desc_de:'Cinematische Qualität für digitale Kanäle. Wir produzieren Videos, die Emotionen triggern, Vertrauen aufbauen und verkaufen — von der ersten Idee bis zum fertigen Cut.',
+    desc_en:'Cinematic quality for digital channels. We produce videos that trigger emotions, build trust, and drive sales — from first concept to final cut.',
+    includes_de:['Konzept & Scriptwriting','Professionelles Filming (4K)','Nachbearbeitung & Color Grading','Motion Graphics & Animationen','Untertitel & Mehrsprachigkeit','Format-Optimierung (YouTube, Instagram, TikTok, LinkedIn)','Thumbnail Design & A/B-Testing','Musik-Licensing & Sounddesign'],
+    timeline_de:'1 – 3 Wochen pro Projekt', price_de:'ab €2.500 pro Video',
+  },
+  {
+    icon:'file-text', title_de:'Content Strategy & SEO', title_en:'Content Strategy & SEO',
+    desc_de:'Inhalte mit strategischer Tiefe. Wir erschaffen ein Content-Ökosystem, das Ihre Autorität in der Branche aufbaut, Google-Rankings dominiert und qualifizierte Leads generiert.',
+    desc_en:'Content with strategic depth. We build a content ecosystem that establishes your industry authority, dominates Google rankings, and generates qualified leads.',
+    includes_de:['Tiefes Keyword-Research & SEO-Analyse','Redaktionskalender (3–6 Monate voraus)','SEO-optimierte Blog-Artikel (1.500 – 3.000 Wörter)','Long-Form Content (Whitepapers, Guides, Case Studies)','Technisches SEO-Audit & On-Page Optimierung','Backlink-Aufbau (White-Hat Link Building)','Content-Repurposing für Social Media','Monatliche Ranking- & Traffic-Reports'],
+    timeline_de:'Erste Rankings nach 60 – 90 Tagen', price_de:'ab €1.800 /Monat',
+  },
+  {
+    icon:'layers', title_de:'Brand Architecture', title_en:'Brand Architecture',
+    desc_de:'Identitäten, die bleiben. Wir erschaffen Marken mit strategischer Tiefe — Positionierungen, die Preise rechtfertigen, Loyalität aufbauen und in den Köpfen Ihrer Zielgruppe bleiben.',
+    desc_en:'Identities that endure. We create brands with strategic depth — positioning that justifies premium prices, builds loyalty, and sticks in the minds of your target audience.',
+    includes_de:['Logo Design (3 Konzepte + Varianten)','Umfassendes Brand Guideline Dokument (60+ Seiten)','Farbsystem, Typografie & Ikonografie','Brand Voice, Messaging & Tagline-Entwicklung','Visitenkarten, Briefpapier & Geschäftsausstattung','Social Media Templates & Cover Designs','Pitch Deck Vorlage (PowerPoint & Keynote)','Markenrecht-Beratung & Anmeldeunterstützung'],
+    timeline_de:'3 – 5 Wochen', price_de:'ab €4.500',
+  },
+];
+
+// ── Translations ──
+window.T = {
+  DE: {
+    nav:{services:'Services',process:'Prozess',cases:'Portfolio',pricing:'Preise',about:'Über uns',contact:'Kontakt'},
+    hero:{
+      badge:'High Class Digital Agency · Hamburg',
+      h1:'We build', h2:'digital presence.',
+      sub:'Wir entwickeln digitale Erlebnisse, die aus ambitionierten Unternehmen starke Marken machen — mit klarer Strategie, kompromisslosem Design und einer Präsenz, die Wachstum unvermeidbar macht.',
+      cta1:'Projekt starten', cta2:'Portfolio ansehen',
+      s1v:'+100%',s1l:'Generierter Umsatz',s2v:'Perfekte',s2l:'Kundenzufriedenheit',s3v:'Unzählige',s3l:'Projekte geliefert',s4v:'100%',s4l:'Zufriedene Kunden',
+    },
+    trust:{label:'Betreute Branchen'},
+    services:{
+      badge:'Was wir liefern',
+      h:'Keine Kompromisse. Nur Ergebnisse.',
+      sub:'Jede Disziplin auf Elite-Niveau — nahtlos integriert zu einer unschlagbaren Gesamtstrategie für Ihr Wachstum.',
+      more:'Mehr erfahren',
+    },
+    process:{
+      badge:'Unser Prozess',
+      h:'Systematisch. Unaufhaltsam. Reproduzierbar.',
+      sub:'Ein bewährtes Framework, das aus jedem Projekt ein Meisterwerk macht.',
+      steps:[
+        {n:'01',t:'Deep Discovery',d:'Wir tauchen tief in Ihr Business ein. Marktanalyse, Wettbewerbsaudit und klare Zieldefinition — die Grundlage für alles, was folgt.'},
+        {n:'02',t:'Strategic Design',d:'Kreativität trifft Strategie. Jedes Pixel, jedes Wort ist kalkuliert für maximalen Impact und höchste Konversion.'},
+        {n:'03',t:'Precision Build',d:'Development auf Engineering-Niveau. Performant, skalierbar und obsessiv getestet — bevor ein einziger Nutzer es sieht.'},
+        {n:'04',t:'Launch & Dominate',d:'Go-Live ist nicht das Ende, sondern der Startschuss. Wir optimieren kontinuierlich, bis Ihre Ziele dauerhaft erreicht sind.'},
+      ],
+    },
+    portfolio:{
+      badge:'Referenzen',
+      h:'Echte Kunden. Echte Ergebnisse.',
+      sub:'Vier Projekte, die zeigen, was passiert, wenn Strategie und Exzellenz aufeinandertreffen.',
+      visit:'Website besuchen',viewAll:'Alle ansehen',
+    },
+    pricing:{
+      badge:'Investition',
+      h:'Transparente Preise. Außergewöhnlicher Wert.',
+      sub:'Kein verstecktes Kleingedrucktes. Klare Pakete für klare Ziele.',
+      mo:'Monatlich',yr:'Jährlich',save:'2 Monate gratis',
+      packages:[
+        {name:'Foundation',pm:'2.900',py:'2.417',
+          desc:'Für Startups und Einzelunternehmer, die professionell starten wollen.',
+          feats:['Brand Identity & Logo','Website (bis 7 Seiten)','On-Page SEO-Grundoptimierung','Social Media Setup (2 Kanäle)','Google Analytics & Tracking','Monatliches Performance-Reporting','2 Revisionsrunden inkludiert'],
+          cta:'Foundation starten'},
+        {name:'Dominance',pm:'6.900',py:'5.750',popular:true,
+          desc:'Unser beliebtestes Paket für wachsende Unternehmen mit ernsthaften Ambitionen.',
+          feats:['Alles aus Foundation','Performance Marketing (Meta + Google)','Content Strategy & Produktion','Video Content (4 Videos/Monat)','A/B-Testing & CRO','Dedizierter Account Manager','Wöchentliche Strategy Calls','Zugang zum Client Dashboard'],
+          cta:'Jetzt dominieren'},
+        {name:'Empire',pm:'14.900',py:'12.417',
+          desc:'Full-Service für Marktführer, die ihre digitale Präsenz auf ein neues Level heben.',
+          feats:['Alles aus Dominance','Custom Software Development','Multi-Channel Kampagnen (5+ Kanäle)','Influencer & PR-Management','Internationalisierung & Lokalisierung','Executive Consulting (CMO on Demand)','24/7 Priority Support','Dedicated Slack-Channel'],
+          cta:'Empire aufbauen'},
+      ],
+    },
+    contact:{
+      badge:"Let's talk",
+      h:'Bereit, Ihre Konkurrenz zu vergessen?',
+      sub:'Schildern Sie uns Ihre Situation. Wir antworten innerhalb von 4 Stunden mit einem konkreten Plan — kostenlos und unverbindlich.',
+      name:'Vollständiger Name',email:'E-Mail-Adresse',company:'Unternehmen',budget:'Budget-Rahmen',msg:'Beschreiben Sie Ihr Projekt...',
+      cta:'Gespräch anfragen',success:'Nachricht erhalten! Wir melden uns innerhalb von 24 Stunden.',
+      budgets:['< €5.000','€5.000 – €15.000','€15.000 – €50.000','> €50.000'],
+      alt1:'Oder direkt:',info:'info@blackstone-agency.de',
+    },
+    about:{
+      badge:'Über uns',
+      h:'Hinter der Agentur.',
+      sub:'Wir sind Blackstone Agency — ein Team aus Strategen, Designern, Entwicklern und Marketing-Experten mit einer gemeinsamen Passion: außergewöhnliche Ergebnisse.',
+      founder:'Gründer & CEO',
+      story_h:'Die Geschichte hinter Blackstone',
+      story:'Blackstone Agency wurde 2023 von Imrahn Sadat in Hamburg gegründet — mit einer klaren Vision: Digitale Exzellenz, die messbares Wachstum erzeugt, nicht nur schön aussieht. Was als ambitioniertes Ein-Mann-Projekt begann, ist heute ein eingespieltes Team aus acht Spezialisten, die täglich für die Marken ihrer Kunden brennen.\n\nDer Anspruch war von Anfang an kompromisslos: keine Templates, keine Halbherzigkeit, keine Ausreden. Nur Lösungen, die wirklich funktionieren. Dieser Ansatz hat sich bewährt — mit Kunden aus dem Gesundheitswesen, der Gastronomie, dem Service-Bereich und der Gaming-Industrie.',
+      values_h:'Unsere Werte',
+      values:[
+        {t:'Exzellenz',d:'Alles, was unseren Namen trägt, ist auf höchstem Niveau ausgeführt. Mittelmäßigkeit ist keine Option.'},
+        {t:'Transparenz',d:'Keine Überraschungen. Klare Kommunikation, klare Preise, klare Erwartungen — von Anfang an.'},
+        {t:'Ergebnisorientierung',d:'Wir messen unseren Erfolg ausschließlich an Ihrem Wachstum. Schöne Decks interessieren uns nicht, Zahlen schon.'},
+        {t:'Innovation',d:'Wir setzen Trends, statt ihnen zu folgen. Neue Tools, neue Ideen, neue Möglichkeiten — kontinuierlich.'},
+      ],
+      team_h:'Das Team',
+      team:[
+        {name:'Imrahn Sadat',role:'CEO & Gründer',bg:'Strategie, Brand & Vertrieb'},
+        {name:'Head of Design',role:'Lead Designer',bg:'UX/UI, Branding & Visual Direction'},
+        {name:'Head of Dev',role:'Lead Developer',bg:'React, Next.js, Performance'},
+        {name:'Head of Growth',role:'Marketing Lead',bg:'Paid Ads, SEO & Analytics'},
+      ],
+      why_h:'Warum Blackstone?',
+      why:[
+        {t:'Keine Subunternehmer',d:'Alles in-house. Sie arbeiten mit denselben Menschen, die Ihr Projekt auch umsetzen.'},
+        {t:'Ergebnis-Garantie',d:'Wir definieren vorab klare KPIs. Wenn wir sie nicht erreichen, arbeiten wir kostenlos weiter.'},
+        {t:'Hamburg ansässig',d:'Kurze Wege, persönliche Meetings, lokales Netzwerk — bei globalem Qualitätsanspruch.'},
+        {t:'Keine Knebelverträge',d:'Monatlich kündbar. Wir halten unsere Kunden durch Leistung, nicht durch Paragraphen.'},
+      ],
+    },
+    legal:{
+      ds_title:'Datenschutzerklärung',
+      imp_title:'Impressum',
+      agb_title:'Allgemeine Geschäftsbedingungen',
+      cookie_title:'Cookie-Richtlinie',
+    },
+    footer:{
+      tagline:'Wir erschaffen digitale Dominanz für Marken, die führen wollen.',
+      company:'Unternehmen',legal:'Rechtliches',
+      comp_links:['Über uns','Portfolio','Blog','Karriere'],
+      comp_routes:['about','portfolio','blog','karriere'],
+      legal_links:['Impressum','Datenschutz','AGB','Cookies'],
+      legal_routes:['impressum','datenschutz','agb','cookies'],
+      copy:'© 2026 Blackstone Agency · Imrahn Sadat · Hamburg',
+      status:'Alle Systeme aktiv',
+    },
+    cookie:{
+      text:'Wir verwenden Cookies, um Ihnen die bestmögliche Erfahrung zu bieten und unsere Website zu verbessern.',
+      accept:'Alle akzeptieren',decline:'Nur notwendige',settings:'Einstellungen',
+    },
+  },
+  EN: {
+    nav:{services:'Services',process:'Process',cases:'Portfolio',pricing:'Pricing',about:'About',contact:'Contact'},
+    hero:{
+      badge:'Premium Digital Agency · Hamburg',
+      h1:'We build', h2:'digital presence.',
+      sub:'We craft digital experiences that transform brands, dominate markets, and generate sustainable growth — at the level of the world\'s best agencies.',
+      cta1:'Start a project', cta2:'View portfolio',
+      s1v:'+100%',s1l:'Revenue generated',s2v:'100%',s2l:'Client satisfaction',s3v:'Many',s3l:'Projects delivered',s4v:'Uncountable',s4l:'Happy clients',
+    },
+    trust:{label:'Industries served'},
+    services:{
+      badge:'What we deliver',
+      h:'No compromises. Only results.',
+      sub:'Every discipline at elite level — seamlessly integrated into an unbeatable overall strategy for your growth.',
+      more:'Learn more',
+    },
+    process:{
+      badge:'Our Process',
+      h:'Systematic. Unstoppable. Reproducible.',
+      sub:'A proven framework that turns every project into a masterpiece.',
+      steps:[
+        {n:'01',t:'Deep Discovery',d:'We dive deep into your business. Market analysis, competitive audit and clear goal definition — the foundation for everything that follows.'},
+        {n:'02',t:'Strategic Design',d:'Creativity meets strategy. Every pixel, every word is calculated for maximum impact and highest conversion.'},
+        {n:'03',t:'Precision Build',d:'Development at engineering level. Performant, scalable and obsessively tested — before a single user sees it.'},
+        {n:'04',t:'Launch & Dominate',d:'Go-live is not the end, it\'s the starting gun. We continuously optimise until your goals are permanently achieved.'},
+      ],
+    },
+    portfolio:{
+      badge:'References',
+      h:'Real clients. Real results.',
+      sub:'Four projects that show what happens when strategy and excellence meet.',
+      visit:'Visit website',viewAll:'View all',
+    },
+    pricing:{
+      badge:'Investment',
+      h:'Transparent pricing. Extraordinary value.',
+      sub:'No hidden fine print. Clear packages for clear goals.',
+      mo:'Monthly',yr:'Yearly',save:'2 months free',
+      packages:[
+        {name:'Foundation',pm:'2,900',py:'2,417',
+          desc:'For startups and solopreneurs who want to start professionally.',
+          feats:['Brand Identity & Logo','Website (up to 7 pages)','On-page SEO foundation','Social Media Setup (2 channels)','Google Analytics & Tracking','Monthly performance reporting','2 revision rounds included'],
+          cta:'Start Foundation'},
+        {name:'Dominance',pm:'6,900',py:'5,750',popular:true,
+          desc:'Our most popular package for growing businesses with serious ambitions.',
+          feats:['Everything in Foundation','Performance Marketing (Meta + Google)','Content Strategy & Production','Video Content (4 videos/month)','A/B Testing & CRO','Dedicated Account Manager','Weekly Strategy Calls','Access to Client Dashboard'],
+          cta:'Dominate now'},
+        {name:'Empire',pm:'14,900',py:'12,417',
+          desc:'Full-service for market leaders elevating their digital presence to a new level.',
+          feats:['Everything in Dominance','Custom Software Development','Multi-Channel Campaigns (5+ channels)','Influencer & PR Management','Internationalisation & Localisation','Executive Consulting (CMO on Demand)','24/7 Priority Support','Dedicated Slack Channel'],
+          cta:'Build your Empire'},
+      ],
+    },
+    contact:{
+      badge:"Let's talk",
+      h:'Ready to leave your competition behind?',
+      sub:'Tell us about your situation. We respond within 4 hours with a concrete plan — free and non-binding.',
+      name:'Full Name',email:'Email Address',company:'Company',budget:'Budget Range',msg:'Describe your project...',
+      cta:'Request a call',success:'Message received! We\'ll get back to you within 4 hours.',
+      budgets:['< €5,000','€5,000 – €15,000','€15,000 – €50,000','> €50,000'],
+      alt1:'Or directly:',info:'info@blackstone-agency.de',
+    },
+    about:{
+      badge:'About us',
+      h:'Behind the agency.',
+      sub:'We are Blackstone Agency — a team of strategists, designers, developers and marketing experts with one shared passion: extraordinary results.',
+      founder:'Founder & CEO',
+      story_h:'The story behind Blackstone',
+      story:'Blackstone Agency was founded in 2023 by Imrahn Sadat in Hamburg — with a clear vision: digital excellence that generates measurable growth, not just beautiful aesthetics. What started as an ambitious solo project is now a well-coordinated team of eight specialists who are passionate about their clients\' brands every day.\n\nThe standard was uncompromising from the start: no templates, no half-measures, no excuses. Only solutions that actually work. This approach has proven itself — with clients in healthcare, gastronomy, service industries, and gaming.',
+      values_h:'Our values',
+      values:[
+        {t:'Excellence',d:'Everything that bears our name is executed at the highest level. Mediocrity is not an option.'},
+        {t:'Transparency',d:'No surprises. Clear communication, clear prices, clear expectations — from the very beginning.'},
+        {t:'Results-Driven',d:'We measure our success exclusively by your growth. Pretty decks don\'t interest us — numbers do.'},
+        {t:'Innovation',d:'We set trends instead of following them. New tools, new ideas, new possibilities — continuously.'},
+      ],
+      team_h:'The team',
+      team:[
+        {name:'Imrahn Sadat',role:'CEO & Founder',bg:'Strategy, Brand & Sales'},
+        {name:'Head of Design',role:'Lead Designer',bg:'UX/UI, Branding & Visual Direction'},
+        {name:'Head of Dev',role:'Lead Developer',bg:'React, Next.js, Performance'},
+        {name:'Head of Growth',role:'Marketing Lead',bg:'Paid Ads, SEO & Analytics'},
+      ],
+      why_h:'Why Blackstone?',
+      why:[
+        {t:'No subcontractors',d:'Everything in-house. You work with the same people who actually execute your project.'},
+        {t:'Results guarantee',d:'We define clear KPIs upfront. If we don\'t hit them, we keep working for free.'},
+        {t:'Based in Hamburg',d:'Short paths, personal meetings, local network — with a global quality standard.'},
+        {t:'No lock-in contracts',d:'Cancel monthly. We retain our clients through performance, not paragraphs.'},
+      ],
+    },
+    legal:{ds_title:'Privacy Policy',imp_title:'Imprint',agb_title:'Terms & Conditions',cookie_title:'Cookie Policy'},
+    footer:{
+      tagline:'We create digital dominance for brands that want to lead.',
+      company:'Company',legal:'Legal',
+      comp_links:['About us','Portfolio','Blog','Careers'],
+      comp_routes:['about','portfolio','blog','karriere'],
+      legal_links:['Imprint','Privacy Policy','T&Cs','Cookies'],
+      legal_routes:['impressum','datenschutz','agb','cookies'],
+      copy:'© 2025 Blackstone Agency · Imrahn Sadat · Hamburg',
+      status:'All systems operational',
+    },
+    cookie:{text:'We use cookies to provide you with the best possible experience and to improve our website.',accept:'Accept all',decline:'Necessary only',settings:'Settings'},
+  },
+  ES: {
+    nav:{services:'Servicios',process:'Proceso',cases:'Portafolio',pricing:'Precios',about:'Nosotros',contact:'Contacto'},
+    hero:{
+      badge:'Agencia Digital Premium · Hamburgo',
+      h1:'Construimos', h2:'dominancia digital.',
+      sub:'Creamos experiencias digitales que transforman marcas, dominan mercados y generan crecimiento sostenible — al nivel de las mejores agencias del mundo.',
+      cta1:'Iniciar proyecto', cta2:'Ver portafolio',
+      s1v:'€48M+',s1l:'Ingresos generados',s2v:'97%',s2l:'Satisfacción del cliente',s3v:'340+',s3l:'Proyectos entregados',s4v:'4',s4l:'Clientes satisfechos',
+    },
+    trust:{label:'Sectores atendidos'},
+    services:{
+      badge:'Lo que entregamos',
+      h:'Sin compromisos. Solo resultados.',
+      sub:'Cada disciplina al nivel de élite — integrada en una estrategia global imbatible para tu crecimiento.',
+      more:'Saber más',
+    },
+    process:{
+      badge:'Nuestro Proceso',
+      h:'Sistemático. Imparable. Reproducible.',
+      sub:'Un framework probado que convierte cada proyecto en una obra maestra.',
+      steps:[
+        {n:'01',t:'Descubrimiento Profundo',d:'Nos sumergimos en tu negocio. Análisis de mercado, auditoría competitiva y definición clara de objetivos — la base de todo.'},
+        {n:'02',t:'Diseño Estratégico',d:'La creatividad se une a la estrategia. Cada píxel, cada palabra calculada para el máximo impacto y la mayor conversión.'},
+        {n:'03',t:'Construcción Precisa',d:'Desarrollo a nivel de ingeniería. Eficiente, escalable y obsesivamente probado — antes de que un solo usuario lo vea.'},
+        {n:'04',t:'Lanzar y Dominar',d:'El lanzamiento no es el fin, es el disparo de salida. Optimizamos continuamente hasta que tus objetivos se alcanzan de forma permanente.'},
+      ],
+    },
+    portfolio:{badge:'Referencias',h:'Clientes reales. Resultados reales.',sub:'Cuatro proyectos que muestran qué ocurre cuando la estrategia y la excelencia se encuentran.',visit:'Visitar web',viewAll:'Ver todos'},
+    pricing:{
+      badge:'Inversión',h:'Precios transparentes. Valor extraordinario.',sub:'Sin letra pequeña. Paquetes claros para objetivos claros.',
+      mo:'Mensual',yr:'Anual',save:'2 meses gratis',
+      packages:[
+        {name:'Foundation',pm:'2.900',py:'2.417',desc:'Para startups y emprendedores que quieren comenzar profesionalmente.',feats:['Identidad de marca & Logo','Sitio web (hasta 7 páginas)','SEO on-page básico','Configuración Social Media (2 canales)','Google Analytics & Tracking','Reporting mensual','2 rondas de revisión'],cta:'Iniciar Foundation'},
+        {name:'Dominance',pm:'6.900',py:'5.750',popular:true,desc:'Nuestro paquete más popular para empresas en crecimiento con ambiciones serias.',feats:['Todo de Foundation','Performance Marketing (Meta + Google)','Estrategia y producción de contenidos','Video Content (4 vídeos/mes)','A/B Testing & CRO','Account Manager dedicado','Calls de estrategia semanales','Acceso al Client Dashboard'],cta:'Dominar ahora'},
+        {name:'Empire',pm:'14.900',py:'12.417',desc:'Servicio completo para líderes de mercado que elevan su presencia digital.',feats:['Todo de Dominance','Desarrollo de software a medida','Campañas multicanal (5+ canales)','Gestión de Influencers & PR','Internacionalización','Consultoría Ejecutiva (CMO bajo demanda)','Soporte prioritario 24/7','Canal Slack dedicado'],cta:'Construir tu Imperio'},
+      ],
+    },
+    contact:{
+      badge:'Hablemos',h:'¿Listo para dejar atrás a tu competencia?',sub:'Cuéntanos tu situación. Respondemos en 4 horas con un plan concreto — sin coste y sin compromiso.',
+      name:'Nombre completo',email:'Correo electrónico',company:'Empresa',budget:'Rango de presupuesto',msg:'Describe tu proyecto...',
+      cta:'Solicitar llamada',success:'¡Mensaje recibido! Te contactaremos en 4 horas.',
+      budgets:['< €5.000','€5.000 – €15.000','€15.000 – €50.000','> €50.000'],
+      alt1:'O directamente:',info:'info@blackstone-agency.de',
+    },
+    about:{
+      badge:'Sobre nosotros',h:'Detrás de la agencia.',sub:'Somos Blackstone Agency — un equipo de estrategas, diseñadores, desarrolladores y expertos en marketing con una pasión compartida: resultados extraordinarios.',
+      founder:'Fundador & CEO',
+      story_h:'La historia detrás de Blackstone',
+      story:'Blackstone Agency fue fundada en 2023 por Imrahn Sadat en Hamburgo — con una visión clara: excelencia digital que genera crecimiento medible, no solo estética. Lo que comenzó como un proyecto en solitario es hoy un equipo coordinado de ocho especialistas que se apasionan cada día por las marcas de sus clientes.',
+      values_h:'Nuestros valores',
+      values:[{t:'Excelencia',d:'Todo lo que lleva nuestro nombre se ejecuta al más alto nivel.'},{t:'Transparencia',d:'Sin sorpresas. Comunicación, precios y expectativas claros desde el principio.'},{t:'Orientación a resultados',d:'Medimos nuestro éxito exclusivamente por tu crecimiento.'},{t:'Innovación',d:'Marcamos tendencias en lugar de seguirlas. Continuamente.'}],
+      team_h:'El equipo',
+      team:[{name:'Imrahn Sadat',role:'CEO & Fundador',bg:'Estrategia, Marca & Ventas'},{name:'Head of Design',role:'Lead Designer',bg:'UX/UI, Branding & Visual'},{name:'Head of Dev',role:'Lead Developer',bg:'React, Next.js, Rendimiento'},{name:'Head of Growth',role:'Marketing Lead',bg:'Paid Ads, SEO & Analytics'}],
+      why_h:'¿Por qué Blackstone?',
+      why:[{t:'Sin subcontratistas',d:'Todo interno. Trabajas con las mismas personas que ejecutan tu proyecto.'},{t:'Garantía de resultados',d:'Definimos KPIs claros por adelantado. Si no los alcanzamos, seguimos trabajando gratis.'},{t:'Con sede en Hamburgo',d:'Caminos cortos, reuniones personales, red local — con estándares de calidad globales.'},{t:'Sin contratos vinculantes',d:'Cancelación mensual. Retenemos a nuestros clientes a través del rendimiento, no de cláusulas.'}],
+    },
+    legal:{ds_title:'Política de Privacidad',imp_title:'Aviso Legal',agb_title:'Términos y Condiciones',cookie_title:'Política de Cookies'},
+    footer:{
+      tagline:'Creamos dominancia digital para marcas que quieren liderar.',
+      company:'Empresa',legal:'Legal',
+      comp_links:['Sobre nosotros','Portafolio','Blog','Empleo'],
+      comp_routes:['about','portfolio','blog','karriere'],
+      legal_links:['Aviso legal','Privacidad','T&C','Cookies'],
+      legal_routes:['impressum','datenschutz','agb','cookies'],
+      copy:'© 2025 Blackstone Agency · Imrahn Sadat · Hamburgo',
+      status:'Todos los sistemas activos',
+    },
+    cookie:{text:'Utilizamos cookies para brindarte la mejor experiencia posible y mejorar nuestro sitio web.',accept:'Aceptar todo',decline:'Solo necesarias',settings:'Ajustes'},
+  },
+};
+</script>
+
+<!-- React App (JSX) — inline für direktes Öffnen ohne Server -->
+<script src="/assets/app.js" defer></script>
+</body>
+</html>
