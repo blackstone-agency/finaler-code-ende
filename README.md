@@ -1,42 +1,35 @@
 # Blackstone Agency — Webseite (Finaler Code)
 
 Statische, optimierte Webseite. Kein Build nötig — Vercel liefert die Dateien direkt aus.
+Alle Dateien liegen absichtlich flach im Hauptordner, damit auch ein Upload per GitHub-Webseite (Drag & Drop) funktioniert.
 
 ## Struktur
 
-| Datei / Ordner | Zweck |
+| Datei | Zweck |
 |---|---|
 | `index.html` | Die komplette Webseite (Einstiegspunkt) |
-| `assets/app.js` | Vorkompilierte React-App (minifiziert, 93 KB) |
-| `assets/tailwind.css` | Statisches Tailwind-CSS (minifiziert, 19 KB) |
-| `vendor/` | React 18.3.1 (selbst gehostet, kein CDN) |
+| `app.js` | Vorkompilierte React-App (minifiziert, 93 KB) |
+| `tailwind.css` | Statisches Tailwind-CSS (minifiziert, 19 KB) |
+| `react.production.min.js`, `react-dom.production.min.js` | React 18.3.1 (selbst gehostet) |
 | `vercel.json` | Vercel-Konfiguration (Caching + Security-Header) |
-| `src/app.jsx` | Quellcode der App — hier Änderungen machen |
-| `build.sh` | Baut nach Änderungen `assets/` neu (`sh build.sh`) |
-| `tailwind.config.static.js` | Tailwind-Konfiguration für den Build |
+| `app.jsx` | Quellcode der App — hier Änderungen machen |
+| `build.sh` | Baut nach Änderungen `app.js` + `tailwind.css` neu (`sh build.sh`) |
+| `tailwind.config.static.js`, `tailwind-input.css` | Tailwind-Build-Konfiguration |
 
-## Online gehen (einmalig)
+## Deployment
 
-1. Auf GitHub ein neues Repository erstellen (z. B. `blackstone-website`), **ohne** README/Lizenz.
-2. Im Terminal in diesem Ordner:
-
-```sh
-git remote add origin https://github.com/blackstone-agency/DEIN-REPO-NAME.git
-git push -u origin main
-```
-
-3. Auf [vercel.com](https://vercel.com) → **Add New → Project** → das GitHub-Repo importieren → **Deploy** klicken. Fertig.
-
-Ab dann gilt: **Jeder `git push` deployt automatisch die neue Version.**
-
-## Änderungen machen
-
-1. `src/app.jsx` bearbeiten (Inhalte/Komponenten) oder `index.html` (Texte im Datenblock, Meta-Tags).
-2. `sh build.sh` ausführen (baut `assets/app.js` + `assets/tailwind.css` neu).
-3. Committen + pushen:
+Verbunden mit Vercel: jeder Push auf `main` deployt automatisch.
 
 ```sh
 git add -A
 git commit -m "Update"
 git push
 ```
+
+## Änderungen machen
+
+1. `app.jsx` bearbeiten (Inhalte/Komponenten) oder `index.html` (Texte im Datenblock, Meta-Tags).
+2. `sh build.sh` ausführen (baut `app.js` + `tailwind.css` neu).
+3. Committen + pushen (siehe oben).
+
+**Wichtig:** Beim Hochladen über die GitHub-Webseite immer ALLE Dateien zusammen hochladen — dank flacher Struktur gehen dabei keine Pfade mehr kaputt.
