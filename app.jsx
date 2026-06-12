@@ -1432,7 +1432,7 @@ const Footer = ({ t, dark: bd, navigate }) => {
 
       {/* Links grid */}
       <div className="px-5 py-12">
-        <div className="max-w-7xl mx-auto footer-links-grid" style={{display:'block'}}>
+        <div className="max-w-7xl mx-auto footer-links-grid">
           {/* Brand */}
           <div className="mb-10 lg:mb-0">
             <button onClick={()=>navigate('home')} className="flex items-center gap-2.5 mb-4 cursor-pointer">
