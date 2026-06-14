@@ -459,6 +459,39 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* ── FAQ accordion ── */
 .faq-item{overflow:hidden;transition:border-color .3s}
 .faq-body{overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1),opacity .3s}
+
+/* ── Hero aurora + mouse spotlight ── */
+.hero-aurora{position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.6;
+  background:
+    radial-gradient(42% 52% at 18% 22%,rgba(124,58,237,.20),transparent 62%),
+    radial-gradient(36% 46% at 82% 24%,rgba(16,185,129,.13),transparent 62%),
+    radial-gradient(46% 52% at 62% 82%,rgba(59,130,246,.13),transparent 62%);
+  filter:blur(24px);animation:aurora-drift 20s ease-in-out infinite}
+.page-light .hero-aurora{opacity:.4}
+@keyframes aurora-drift{0%,100%{transform:translate3d(0,0,0) scale(1)}33%{transform:translate3d(2.5%,-2%,0) scale(1.06)}66%{transform:translate3d(-2%,1.5%,0) scale(1.03)}}
+.hero-spotlight{position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:radial-gradient(520px circle at var(--hdx,50%) var(--hdy,38%),rgba(139,124,255,.11),transparent 46%)}
+.page-light .hero-spotlight{background:radial-gradient(520px circle at var(--hdx,50%) var(--hdy,38%),rgba(90,70,210,.07),transparent 46%)}
+
+/* ── Process halo + rotating ring ── */
+.proc-halo{position:absolute;top:50%;left:50%;width:340px;height:340px;transform:translate(-50%,-50%);border-radius:50%;
+  background:radial-gradient(circle,rgba(139,124,255,.24),transparent 66%);filter:blur(34px);transition:opacity .55s ease;pointer-events:none}
+.proc-ring{position:absolute;top:50%;left:50%;width:264px;height:264px;transform:translate(-50%,-50%);border-radius:50%;
+  background:conic-gradient(from 0deg,transparent,rgba(139,124,255,.55),transparent 28%);
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 2px),#000 calc(100% - 2px));
+  mask:radial-gradient(farthest-side,transparent calc(100% - 2px),#000 calc(100% - 2px));
+  animation:proc-spin 8s linear infinite;opacity:.6;pointer-events:none}
+@keyframes proc-spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+
+/* ── Flow field (award section) ── */
+.flow-section{position:relative;overflow:hidden}
+.flow-wrap{position:relative;width:100%;height:clamp(580px,82vh,860px);cursor:crosshair}
+.flow-canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.flow-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px;pointer-events:none}
+.flow-title{font-size:clamp(40px,7.4vw,98px);line-height:.9;margin:0;max-width:15ch}
+.flow-sub{font-size:clamp(15px,2vw,20px);max-width:560px;margin:26px auto 0;line-height:1.6}
+.flow-hint{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;margin-top:42px;opacity:.75}
+@media (prefers-reduced-motion:reduce){.hero-aurora,.proc-ring{animation:none}}
 </style>
 </head>
 <body>
@@ -572,6 +605,7 @@ window.T = {
       s1v:'+100%',s1l:'Generierter Umsatz',s2v:'Perfekte',s2l:'Kundenzufriedenheit',s3v:'Unzählige',s3l:'Projekte geliefert',s4v:'100%',s4l:'Zufriedene Kunden',
     },
     trust:{label:'Betreute Branchen'},
+    flow:{badge:'Die Blackstone-Philosophie',h:'Aus Daten wird Bewegung.',sub:'Jeder Punkt ein Datensignal. Jede Linie eine Entscheidung. So verwandeln wir Komplexität in Wachstum — beweg deinen Cursor und sieh, wie das Feld reagiert.',hint:'Interaktiv · beweg deinen Cursor'},
     calc:{badge:'Wachstums-Simulator',h:'Berechne dein Potenzial.',sub:'Verschiebe die Regler und sieh, was strategisches Marketing aus deinem Budget machen kann. Unverbindliche Orientierung — keine garantierten Werte.',budgetLabel:'Monatliches Marketing-Budget',perMonth:' /Monat',industryLabel:'Branche',out_reach:'Geschätzte Reichweite / Monat',out_leads:'Qualifizierte Leads / Monat',out_roas:'Möglicher ROAS',disclaimer:'Simulationswerte basieren auf Branchen-Durchschnitten und Erfahrungswerten. Tatsächliche Ergebnisse hängen von Markt, Angebot und Umsetzung ab.',cta:'Echte Strategie besprechen',industries:['E-Commerce','Gastronomie','Gesundheit','Dienstleistung','B2B / SaaS','Lokales Geschäft']},
     guarantee:{badge:'Unser Versprechen',h:'Null Risiko. Volle Verbindlichkeit.',sub:'Wir binden Kunden durch Ergebnisse — nicht durch Verträge.',items:[{t:'KPI-Garantie',d:'Wir definieren messbare Ziele vorab. Erreichen wir sie nicht, arbeiten wir kostenlos weiter — bis sie stehen.'},{t:'Monatlich kündbar',d:'Keine Knebelverträge, keine Mindestlaufzeit. Du bleibst, weil es funktioniert.'},{t:'Alles in-house',d:'Keine Subunternehmer. Dieselben Menschen, die planen, setzen auch um.'},{t:'Transparente Reportings',d:'Jeden Monat klare Zahlen. Du siehst genau, wohin jeder Euro fließt.'}]},
     faq:{badge:'Häufige Fragen',h:'Alles, was du wissen musst.',items:[{q:'Wie schnell sehe ich erste Ergebnisse?',a:'Bei Paid Ads typischerweise ab Woche 2–4. SEO und organisches Wachstum brauchen 3–6 Monate für nachhaltige Effekte. Wir kommunizieren realistische Zeitrahmen von Anfang an.'},{q:'Was kostet eine Zusammenarbeit?',a:'Projekte starten ab €1.200/Monat, Web-Projekte ab €3.500. Den genauen Umfang definieren wir nach einem kostenlosen Erstgespräch — passend zu deinen Zielen.'},{q:'Arbeitet ihr auch mit kleinen Unternehmen?',a:'Ja. Vom lokalen Handwerksbetrieb bis zum wachsenden B2B-Unternehmen — entscheidend ist der Wille zu wachsen, nicht die Größe.'},{q:'Bin ich an einen Vertrag gebunden?',a:'Nein. Alle laufenden Leistungen sind monatlich kündbar. Wir halten unsere Kunden durch Leistung.'},{q:'Wie läuft die Zusammenarbeit ab?',a:'Strategiegespräch → Konzept → Umsetzung → kontinuierliche Optimierung. Du hast einen festen Ansprechpartner und monatliche Reportings.'}]},
@@ -687,6 +721,7 @@ window.T = {
       s1v:'+100%',s1l:'Revenue generated',s2v:'100%',s2l:'Client satisfaction',s3v:'Many',s3l:'Projects delivered',s4v:'Uncountable',s4l:'Happy clients',
     },
     trust:{label:'Industries served'},
+    flow:{badge:'The Blackstone philosophy',h:'Data becomes momentum.',sub:'Every point a data signal. Every line a decision. This is how we turn complexity into growth — move your cursor and watch the field respond.',hint:'Interactive · move your cursor'},
     calc:{badge:'Growth Simulator',h:'Calculate your potential.',sub:'Move the sliders and see what strategic marketing can do with your budget. Non-binding orientation — not guaranteed figures.',budgetLabel:'Monthly marketing budget',perMonth:' /mo',industryLabel:'Industry',out_reach:'Est. reach / month',out_leads:'Qualified leads / month',out_roas:'Potential ROAS',disclaimer:'Simulated values are based on industry averages and experience. Actual results depend on market, offer and execution.',cta:'Discuss a real strategy',industries:['E-Commerce','Hospitality','Healthcare','Services','B2B / SaaS','Local business']},
     guarantee:{badge:'Our promise',h:'Zero risk. Full commitment.',sub:'We keep clients through results — not contracts.',items:[{t:'KPI guarantee',d:'We define measurable goals upfront. If we miss them, we keep working for free until they are met.'},{t:'Cancel monthly',d:'No lock-in contracts, no minimum term. You stay because it works.'},{t:'All in-house',d:'No subcontractors. The same people who plan also execute.'},{t:'Transparent reporting',d:'Clear numbers every month. You see exactly where every euro goes.'}]},
     faq:{badge:'FAQ',h:'Everything you need to know.',items:[{q:'How fast will I see results?',a:'For paid ads typically from week 2–4. SEO and organic growth need 3–6 months for sustainable effects. We communicate realistic timelines from the start.'},{q:'What does working together cost?',a:'Projects start at €1,200/month, web projects from €3,500. We define the exact scope after a free initial call — tailored to your goals.'},{q:'Do you work with small businesses?',a:'Yes. From the local craftsman to the growing B2B company — what matters is the will to grow, not company size.'},{q:'Am I locked into a contract?',a:'No. All ongoing services can be cancelled monthly. We keep our clients through performance.'},{q:'How does the collaboration work?',a:'Strategy call → concept → execution → continuous optimization. You get a dedicated contact and monthly reporting.'}]},
@@ -794,6 +829,7 @@ window.T = {
       s1v:'€48M+',s1l:'Ingresos generados',s2v:'97%',s2l:'Satisfacción del cliente',s3v:'340+',s3l:'Proyectos entregados',s4v:'4',s4l:'Clientes satisfechos',
     },
     trust:{label:'Sectores atendidos'},
+    flow:{badge:'La filosofía Blackstone',h:'Los datos se vuelven impulso.',sub:'Cada punto una señal de datos. Cada línea una decisión. Así convertimos la complejidad en crecimiento — mueve el cursor y observa cómo reacciona el campo.',hint:'Interactivo · mueve tu cursor'},
     calc:{badge:'Simulador de crecimiento',h:'Calcula tu potencial.',sub:'Mueve los controles y descubre qué puede lograr el marketing estratégico con tu presupuesto. Orientación no vinculante — no son cifras garantizadas.',budgetLabel:'Presupuesto mensual de marketing',perMonth:' /mes',industryLabel:'Sector',out_reach:'Alcance est. / mes',out_leads:'Leads cualificados / mes',out_roas:'ROAS potencial',disclaimer:'Los valores simulados se basan en promedios del sector y experiencia. Los resultados reales dependen del mercado, la oferta y la ejecución.',cta:'Hablar de una estrategia real',industries:['E-Commerce','Hostelería','Salud','Servicios','B2B / SaaS','Negocio local']},
     guarantee:{badge:'Nuestra promesa',h:'Cero riesgo. Compromiso total.',sub:'Retenemos clientes por resultados — no por contratos.',items:[{t:'Garantía de KPI',d:'Definimos objetivos medibles desde el inicio. Si no los alcanzamos, seguimos trabajando gratis hasta lograrlo.'},{t:'Cancela cada mes',d:'Sin contratos de permanencia, sin plazo mínimo. Te quedas porque funciona.'},{t:'Todo interno',d:'Sin subcontratistas. Las mismas personas que planifican también ejecutan.'},{t:'Informes transparentes',d:'Cifras claras cada mes. Ves exactamente a dónde va cada euro.'}]},
     faq:{badge:'Preguntas frecuentes',h:'Todo lo que necesitas saber.',items:[{q:'¿Con qué rapidez veré resultados?',a:'En paid ads normalmente desde la semana 2–4. El SEO y el crecimiento orgánico necesitan 3–6 meses para efectos sostenibles. Comunicamos plazos realistas desde el principio.'},{q:'¿Cuánto cuesta trabajar juntos?',a:'Los proyectos empiezan en 1.200 €/mes, los proyectos web desde 3.500 €. Definimos el alcance exacto tras una primera llamada gratuita.'},{q:'¿Trabajáis con pequeñas empresas?',a:'Sí. Desde el negocio local hasta la empresa B2B en crecimiento — lo que importa es la voluntad de crecer, no el tamaño.'},{q:'¿Estoy atado a un contrato?',a:'No. Todos los servicios continuos se pueden cancelar mensualmente. Retenemos a nuestros clientes por rendimiento.'},{q:'¿Cómo es la colaboración?',a:'Llamada estratégica → concepto → ejecución → optimización continua. Tienes un contacto dedicado e informes mensuales.'}]},

@@ -308,7 +308,7 @@ const ChipSVG = ({ dark: bd, progress }) => {
   const juncX=CX+coreOff+coreS+coreGap/2;
   const juncY=CY+coreOff+coreS+coreGap/2;
   const pc=bd?'#3a3a45':'#b0b0bc';
-  const ic=bd?'#252530':'#d0d0da';
+  const ic=bd?'#caa44e':'#c79a3e';
   const gc_on=bd?'#22c55e':'#16a34a';
   return (
     <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`}
@@ -328,6 +328,16 @@ const ChipSVG = ({ dark: bd, progress }) => {
         <clipPath id="chipClip">
           <rect x={CX} y={CY} width={CS} height={CS} rx="18"/>
         </clipPath>
+        <linearGradient id="dieGlare" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="rgba(255,255,255,.18)"/>
+          <stop offset="34%" stopColor="rgba(255,255,255,0)"/>
+          <stop offset="100%" stopColor="rgba(255,255,255,0)"/>
+        </linearGradient>
+        <linearGradient id="iridescent" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor={bd?'rgba(139,124,255,.12)':'rgba(90,70,210,.07)'}/>
+          <stop offset="50%" stopColor={bd?'rgba(16,185,129,.06)':'rgba(5,150,105,.04)'}/>
+          <stop offset="100%" stopColor={bd?'rgba(59,130,246,.11)':'rgba(40,90,200,.06)'}/>
+        </linearGradient>
       </defs>
 
       {/* ── PINS ── */}
@@ -355,6 +365,9 @@ const ChipSVG = ({ dark: bd, progress }) => {
         fill="url(#cpuBody)" stroke="url(#cpuEdge)" strokeWidth="1.5"/>
       <rect x={CX+7} y={CY+7} width={CS-14} height={CS-14} rx="13"
         fill="none" stroke={bd?'rgba(255,255,255,.04)':'rgba(0,0,0,.04)'} strokeWidth={.5}/>
+      {/* Silicon die iridescence + top glare */}
+      <rect x={CX} y={CY} width={CS} height={CS} rx="18" fill="url(#iridescent)" pointerEvents="none"/>
+      <rect x={CX} y={CY} width={CS} height={CS} rx="18" fill="url(#dieGlare)" pointerEvents="none"/>
 
       {/* ── KEY NOTCH ── */}
       <rect x={CX+CS/2-14} y={CY-2} width={28} height={6} rx={3}
@@ -637,6 +650,8 @@ const HeroSection = ({ t, dark: bd, navigate }) => {
       <div aria-hidden="true" style={{position:'absolute',top:'-20%',right:'5%',width:700,height:700,borderRadius:'60% 40% 30% 70%/60% 30% 70% 40%',background:'rgba(124,58,237,0.1)',filter:'blur(110px)',animation:'blob 13s ease-in-out infinite',pointerEvents:'none'}}/>
       <div aria-hidden="true" style={{position:'absolute',bottom:'-15%',left:'-5%',width:600,height:600,borderRadius:'50%',background:'rgba(16,185,129,0.07)',filter:'blur(110px)',animation:'blob 15s ease-in-out infinite',animationDelay:'-6s',pointerEvents:'none'}}/>
       <div aria-hidden="true" style={{position:'absolute',top:'30%',right:'-8%',width:400,height:400,borderRadius:'50%',background:'rgba(59,130,246,0.06)',filter:'blur(90px)',animation:'blob 11s ease-in-out infinite',animationDelay:'-3s',pointerEvents:'none'}}/>
+      <div className="hero-aurora" aria-hidden="true"/>
+      <div className="hero-spotlight" aria-hidden="true"/>
 
       <div className="max-w-7xl mx-auto w-full px-5 lg:px-8 py-8" style={{zIndex:4,position:'relative'}}>
         <div className="hero-two-col" style={{display:'block'}}>
@@ -895,6 +910,8 @@ const ProcessSection = ({ t, dark: bd }) => {
             <div className="flex flex-col items-center gap-8">
               {/* Giant bg number */}
               <div className="relative flex items-center justify-center" style={{width:220,height:220}}>
+                <div className="proc-halo" aria-hidden="true" style={{opacity:0.22+step*0.16}}/>
+                <div className="proc-ring" aria-hidden="true"/>
                 <div className="bg-num" style={{fontSize:'clamp(80px,16vw,220px)',position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)',color:stepColors[step],opacity:.05}}>
                   0{step+1}
                 </div>
@@ -1520,6 +1537,107 @@ function initMagneticBtns() {
   window.addEventListener('scroll', attach, { once: true, passive: true });
 }
 
+const FlowFieldSection = ({ t, dark: bd }) => {
+  const tf = t.flow;
+  const canvasRef = useRef(null);
+  const wrapRef = useRef(null);
+  useEffect(() => {
+    const canvas = canvasRef.current, wrap = wrapRef.current;
+    if (!canvas || !wrap) return;
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const ctx = canvas.getContext('2d');
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    let w = 0, h = 0, particles = [], raf = 0, tm = 0;
+    const mouse = { x: -9999, y: -9999, active: false };
+    const COUNT = window.innerWidth < 640 ? 70 : 160;
+    const accent  = bd ? [139,124,255] : [90,70,210];
+    const accent2 = bd ? [16,185,129] : [5,150,105];
+    function resize() {
+      const r = wrap.getBoundingClientRect();
+      w = r.width; h = r.height;
+      canvas.width = w * dpr; canvas.height = h * dpr;
+      canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    function field(x, y, t2) {
+      return Math.sin(x * 0.0016 + t2 * 0.00022) * Math.cos(y * 0.0016 - t2 * 0.00016) * Math.PI * 2
+           + Math.sin((x + y) * 0.0009 + t2 * 0.0003) * Math.PI;
+    }
+    function init() {
+      particles = [];
+      for (let i = 0; i < COUNT; i++) particles.push({
+        x: Math.random() * w, y: Math.random() * h, vx: 0, vy: 0,
+        life: Math.random() * 220 + 60, mix: Math.random(), sz: Math.random() * 1.5 + 0.4
+      });
+    }
+    function frame() {
+      tm += 16;
+      ctx.fillStyle = bd ? 'rgba(3,3,3,0.085)' : 'rgba(248,248,248,0.11)';
+      ctx.fillRect(0, 0, w, h);
+      for (const p of particles) {
+        const a = field(p.x, p.y, tm);
+        p.vx += Math.cos(a) * 0.10; p.vy += Math.sin(a) * 0.10;
+        if (mouse.active) {
+          const dx = p.x - mouse.x, dy = p.y - mouse.y, d2 = dx * dx + dy * dy;
+          if (d2 < 17000) { const d = Math.sqrt(d2) || 1, f = (1 - d / 130) * 1.7; p.vx += dx / d * f; p.vy += dy / d * f; }
+        }
+        p.vx *= 0.93; p.vy *= 0.93;
+        const px = p.x, py = p.y;
+        p.x += p.vx; p.y += p.vy; p.life--;
+        if (p.x < 0 || p.x > w || p.y < 0 || p.y > h || p.life < 0) {
+          p.x = Math.random() * w; p.y = Math.random() * h; p.vx = p.vy = 0; p.life = Math.random() * 220 + 60;
+        }
+        const c = p.mix < 0.5 ? accent : accent2;
+        const sp = Math.min(1, Math.hypot(p.vx, p.vy) / 3);
+        ctx.strokeStyle = `rgba(${c[0]},${c[1]},${c[2]},${0.10 + sp * 0.55})`;
+        ctx.lineWidth = p.sz;
+        ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(p.x, p.y); ctx.stroke();
+      }
+      raf = requestAnimationFrame(frame);
+    }
+    function staticFrame() {
+      ctx.fillStyle = bd ? '#030303' : '#f8f8f8'; ctx.fillRect(0, 0, w, h);
+      for (let i = 0; i < 140; i++) {
+        ctx.fillStyle = `rgba(139,124,255,${Math.random() * 0.4})`;
+        ctx.beginPath(); ctx.arc(Math.random() * w, Math.random() * h, Math.random() * 1.6, 0, 7); ctx.fill();
+      }
+    }
+    resize(); init();
+    const onMove = (e) => { const r = wrap.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; mouse.active = true; };
+    const onLeave = () => { mouse.active = false; mouse.x = mouse.y = -9999; };
+    const onTouch = (e) => { const tt = e.touches[0]; const r = wrap.getBoundingClientRect(); mouse.x = tt.clientX - r.left; mouse.y = tt.clientY - r.top; mouse.active = true; };
+    const onResize = () => { resize(); init(); };
+    if (reduce) { staticFrame(); }
+    else {
+      wrap.addEventListener('mousemove', onMove, { passive: true });
+      wrap.addEventListener('mouseleave', onLeave);
+      wrap.addEventListener('touchmove', onTouch, { passive: true });
+      window.addEventListener('resize', onResize);
+      raf = requestAnimationFrame(frame);
+    }
+    return () => {
+      cancelAnimationFrame(raf);
+      wrap.removeEventListener('mousemove', onMove);
+      wrap.removeEventListener('mouseleave', onLeave);
+      wrap.removeEventListener('touchmove', onTouch);
+      window.removeEventListener('resize', onResize);
+    };
+  }, [bd]);
+  return (
+    <section className={`flow-section border-t ${bd?'border-zinc-900':'border-zinc-100'}`} style={{zIndex:3}}>
+      <div ref={wrapRef} className="flow-wrap">
+        <canvas ref={canvasRef} className="flow-canvas" aria-hidden="true"/>
+        <div className="flow-overlay">
+          <div className={`${bd?'badge-dark':'badge-light'} mb-6 reveal`} style={{backdropFilter:'blur(10px)',WebkitBackdropFilter:'blur(10px)'}}>{tf.badge}</div>
+          <h2 className={`flow-title font-black tracking-tighter reveal ${bd?'text-white':'text-zinc-900'}`}>{tf.h}</h2>
+          <p className={`flow-sub reveal ${bd?'text-zinc-400':'text-zinc-500'}`}>{tf.sub}</p>
+          <div className={`flow-hint reveal ${bd?'text-zinc-600':'text-zinc-400'}`}>{tf.hint}</div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const GrowthCalculator = ({ t, dark: bd, navigate }) => {
   const tc = t.calc;
   const [budget,setBudget]=useState(2500);
@@ -1688,7 +1806,7 @@ function App() {
 
   const goContact=()=>navigate('#contact');
   const pages={
-    home:<><HeroSection t={t} dark={dark} navigate={navigate}/><TrustSection t={t} dark={dark}/><ServicesSection t={t} dark={dark} onService={svc=>setModal(svc)}/><ChipSection dark={dark}/><ProcessSection t={t} dark={dark}/><PortfolioSection t={t} dark={dark} navigate={navigate}/><GrowthCalculator t={t} dark={dark} navigate={navigate}/><GuaranteeSection t={t} dark={dark}/><PricingSection t={t} dark={dark} billing={billing} setBilling={setBilling} navigate={navigate}/><FAQSection t={t} dark={dark}/><ContactSection t={t} dark={dark}/></>,
+    home:<><HeroSection t={t} dark={dark} navigate={navigate}/><TrustSection t={t} dark={dark}/><ServicesSection t={t} dark={dark} onService={svc=>setModal(svc)}/><ChipSection dark={dark}/><ProcessSection t={t} dark={dark}/><PortfolioSection t={t} dark={dark} navigate={navigate}/><GrowthCalculator t={t} dark={dark} navigate={navigate}/><GuaranteeSection t={t} dark={dark}/><FlowFieldSection t={t} dark={dark}/><PricingSection t={t} dark={dark} billing={billing} setBilling={setBilling} navigate={navigate}/><FAQSection t={t} dark={dark}/><ContactSection t={t} dark={dark}/></>,
     about:<AboutPage dark={dark} t={t} navigate={navigate}/>,
     portfolio:<PortfolioPage t={t} dark={dark}/>,
     impressum:<ImpressumPage dark={dark}/>,
